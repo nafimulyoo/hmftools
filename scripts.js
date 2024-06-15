@@ -279,6 +279,12 @@ selectName.addEventListener('change', function () {
       ? 'Nasatya'
       : 'Nawasena';
     document.getElementById('angkatan').value = angkatan;
+
+    // Update the flatpickr instance with the new date
+    const datePicker = document.getElementById('date')._flatpickr;
+    if (datePicker) {
+      datePicker.setDate(selectedData.date, true);
+    }
   }
 });
 
