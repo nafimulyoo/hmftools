@@ -12,9 +12,6 @@ body {
     display: flex;
     width: 90%;
     height: 95%;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .left, .right {
@@ -75,12 +72,3 @@ body {
     font-size: 16px;
   }
   
-  canvas {
-    margin-top: 20px;
-  }
-  
-  canvas {
-    margin-top: 20px;
-    width: 405px; /* Display smaller on screen */
-    height: 720px; /* Display smaller on screen */
-  }

@@ -95,11 +95,21 @@ function generateCard(croppedImage) {
 
       ctx.fillText(date, 628, 1515);
 
+      // automatically download the card without button
+
       document.getElementById('birthdayCard').style.display = 'block';
+      const download = document.getElementById('download');
+      download.style.display = 'block';
       const downloadButton = document.getElementById('downloadButton');
-      downloadButton.style.display = 'block';
       downloadButton.href = cardCanvas.toDataURL('image/png');
-      downloadButton.download = 'birthday-card.png';
+      downloadButton.download = `${name}-captday.png`;
+      
+      const link = document.createElement('a');
+      link.href = cardCanvas.toDataURL('image/png');
+      link.download = `${name}-captday.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     };
   };
 
@@ -111,6 +121,7 @@ document.getElementById('resetButton').addEventListener('click', function () {
   document.getElementById('cropContainer').style.display = 'none';
   document.getElementById('birthdayCard').style.display = 'none';
   document.getElementById('downloadButton').style.display = 'none';
+  document.getElementById('download').style.display = 'none';
   document.getElementById('resetButton').style.display = 'none';
 });
 
