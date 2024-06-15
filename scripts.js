@@ -261,7 +261,7 @@ const selectName = document.getElementById('selectName');
 filteredData.forEach(data => {
   const option = document.createElement('option');
   option.value = data.nim;
-  option.textContent = `${data.name} - ${data.date.toLocaleDateString('en-GB')}`;
+  option.textContent = `${data.date.toLocaleDateString('en-GB')} - ${data.name}`;
   selectName.appendChild(option);
 });
 
