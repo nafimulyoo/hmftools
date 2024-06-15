@@ -261,7 +261,7 @@ const selectName = document.getElementById('selectName');
 filteredData.forEach(data => {
   const option = document.createElement('option');
   option.value = data.nim;
-  option.textContent = `${data.date.toLocaleDateString('en-GB')} - ${data.name}`;
+  option.textContent = `${data.name} - ${data.date.toLocaleDateString('en-GB')}`;
   selectName.appendChild(option);
 });
 
@@ -365,8 +365,18 @@ function generateCard(croppedImage) {
   const cardCanvas = document.getElementById('birthdayCard');
   const ctx = cardCanvas.getContext('2d');
 
+  const selectTemplate = document.getElementById('selectTemplate').value;
+  const templateMap = {
+    template1: '/templates/1 Candle.png',
+    template2: '/templates/2 Candle.png',
+    template3: '/templates/5 Candle.png',
+    template4: '/templates/Balloon.png',
+    template5: '/templates/Confetti.png',
+    template6: '/templates/Special.png',
+  };
+
   const template = new Image();
-  template.src = '/template.png';
+  template.src = templateMap[selectTemplate];
   template.onload = function () {
     ctx.drawImage(template, 0, 0, cardCanvas.width, cardCanvas.height);
 
