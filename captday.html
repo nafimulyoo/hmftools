@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaptDay Card Generator</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="container mx-auto bg-white rounded-lg shadow-lg p-6 flex">
+    <div class="left w-1/2 p-4">
+      <h1 class="text-3xl font-bold mb-6">Birthday Card Generator</h1>
+      <form id="cardForm" class="space-y-4">
+        <div>
+          <label for="name" class="block text-gray-700">Name:</label>
+          <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded px-4 py-2" required>
+        </div>
+        <div>
+          <label for="angkatan" class="block text-gray-700">Angkatan:</label>
+          <select id="angkatan" name="angkatan" class="w-full border border-gray-300 rounded px-4 py-2" required>
+            <option value="Morpha">Morpha</option>
+            <option value="Nasatya">Nasatya</option>
+            <option value="Nawasena">Nawasena</option>
+          </select>
+        </div>
+        <div>
+          <label for="nim" class="block text-gray-700">NIM:</label>
+          <input type="text" id="nim" name="nim" class="w-full border border-gray-300 rounded px-4 py-2" required>
+        </div>
+        <div>
+          <label for="date" class="block text-gray-700">Date:</label>
+          <input type="text" id="date" name="date" placeholder="DD/MM/YYYY" class="w-full border border-gray-300 rounded px-4 py-2" required>
+        </div>
+        <div>
+          <label for="upload" class="block text-gray-700">Upload Image:</label>
+          <div id="dropArea" class="border-2 border-dashed border-gray-300 p-4 rounded flex items-center justify-center text-gray-500 cursor-pointer">
+            <p>Drag & Drop Image Here</p>
+            <input type="file" id="upload" accept="image/*" class="hidden" required>
+          </div>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Generate Card</button>
+      </form>
+      <button id="resetButton" class="bg-red-500 text-white px-4 py-2 rounded mt-4 hidden">Reset</button>
+    </div>
+
+    <div class="right w-1/2 p-4">
+      <div id="cropContainer" class="hidden">
+        <h2 class="text-2xl font-bold mb-4">Crop Image</h2>
+        <img id="imageToCrop" src="" alt="To Crop" class="max-w-full max-h-60 mx-auto">
+        <button id="cropButton" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Crop</button>
+      </div>
+
+      <canvas id="birthdayCard" width="1080" height="1920" class="hidden mx-auto"></canvas>
+      <a id="downloadButton" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hidden">Download Card</a>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
